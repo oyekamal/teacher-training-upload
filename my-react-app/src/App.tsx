@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Layout } from 'antd'
 import AppHeader from './components/layout/Header'
 import AppFooter from './components/layout/Footer'
 import Sidebar from './components/layout/Sidebar'
-import React, { Suspense } from 'react'
 const Home = React.lazy(() => import('./pages/Home'))
 const Dashboard = React.lazy(() => import('./pages/Dashboard'))
 const UserProfile = React.lazy(() => import('./pages/UserProfile'))
