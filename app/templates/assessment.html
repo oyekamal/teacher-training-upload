@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment - {{ assessment.topic }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .question {
+            display: none;
+        }
+        .active-question {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Assessment: {{ assessment.topic }}</h1>
+        <p>Student: {{ assessment.student.name }}</p>
+    </header>
+    <main>
+        <form id="assessment-form" action="{{ url_for('submit_assessment', assessment_id=assessment.id) }}" method="post">
+            {% for question in assessment.questions %}
+            <div class="question {% if loop.first %}active-question{% endif %}" data-question-index="{{ loop.index0 }}">
+                <h2>Question {{ loop.index }} of {{ loop.length }}</h2>
+                <p>{{ question.text }}</p>
+                <div class="form-group">
+                    <label for="answer-{{ question.id }}">Your Answer:</label>
+                    <input type="text" id="answer-{{ question.id }}" name="answers[{{ question.id }}]" required>
+                </div>
+            </div>
+            {% endfor %}
+            <input type="hidden" name="time_taken" id="time_taken">
+
+            <div class="navigation-buttons">
+                <button type="button" id="prev-btn" disabled>Previous</button>
+                <button type="button" id="next-btn">Next</button>
+                <button type="submit" id="submit-btn" style="display: none;">Submit Assessment</button>
+            </div>
+        </form>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startTime = new Date();
+            const form = document.getElementById('assessment-form');
+            const timeTakenInput = document.getElementById('time_taken');
+            const questions = document.querySelectorAll('.question');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            let currentQuestionIndex = 0;
+
+            function showQuestion(index) {
+                questions.forEach((question, i) => {
+                    question.classList.toggle('active-question', i === index);
+                });
+                prevBtn.disabled = index === 0;
+                nextBtn.style.display = index === questions.length - 1 ? 'none' : 'inline-block';
+                submitBtn.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+
+            showQuestion(currentQuestionIndex);
+
+            form.addEventListener('submit', function() {
+                const endTime = new Date();
+                const timeDiff = endTime - startTime; // in milliseconds
+                const timeInSeconds = Math.round(timeDiff / 1000);
+                timeTakenInput.value = timeInSeconds;
+            });
+        });
+    </script>
+</body>
+</html>

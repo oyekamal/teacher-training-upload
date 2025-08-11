@@ -1,0 +1,92 @@
+[
+  {
+    "topic": "Numbers up to 20",
+    "questions": [
+      { "text": "What number comes after 15?", "answer": "16" },
+      { "text": "Count forward from 8 to 12.", "answer": "8, 9, 10, 11, 12" },
+      { "text": "Which number is bigger: 13 or 9?", "answer": "13" },
+      { "text": "Fill in the blank: 14, 15, __, 17.", "answer": "16" },
+      { "text": "Write the smallest number between 11 and 15.", "answer": "12" }
+    ]
+  },
+  {
+    "topic": "Addition & Subtraction within 20",
+    "questions": [
+      { "text": "5 + 7 = ?", "answer": "12" },
+      { "text": "12 - 4 = ?", "answer": "8" },
+      { "text": "If you have 9 apples and eat 3, how many are left?", "answer": "6" },
+      { "text": "8 + 6 = ?", "answer": "14" },
+      { "text": "15 - 9 = ?", "answer": "6" }
+    ]
+  },
+  {
+    "topic": "Place Value",
+    "questions": [
+      { "text": "In the number 14, how many tens are there?", "answer": "1" },
+      { "text": "What is the value of the digit 7 in 17?", "answer": "7" },
+      { "text": "Which number has more tens: 12 or 19?", "answer": "19" },
+      { "text": "Write the number with 2 tens and 5 ones.", "answer": "25" },
+      { "text": "Break 18 into tens and ones.", "answer": "10 and 8" }
+    ]
+  },
+  {
+    "topic": "Shapes & Geometry",
+    "questions": [
+      { "text": "How many sides does a triangle have?", "answer": "3" },
+      { "text": "Name a shape with 4 equal sides.", "answer": "square" },
+      { "text": "Which shape looks like a ball?", "answer": "sphere" },
+      { "text": "Which shape has 3 corners?", "answer": "triangle" },
+      { "text": "Name a shape that can roll and slide.", "answer": "cone" }
+    ]
+  },
+  {
+    "topic": "Measurement",
+    "questions": [
+      { "text": "Which is longer: a pencil or a book?", "answer": "book" },
+      { "text": "Which is heavier: an apple or a car?", "answer": "car" },
+      { "text": "If a cup holds 200 ml, how much will 2 cups hold?", "answer": "400 ml" },
+      { "text": "Which is shorter: a ruler or a rope?", "answer": "ruler" },
+      { "text": "Which unit measures water: litres or grams?", "answer": "litres" }
+    ]
+  },
+  {
+    "topic": "Fractions",
+    "questions": [
+      { "text": "Half of 10 is ?", "answer": "5" },
+      { "text": "Which is bigger: 1/2 or 1/4?", "answer": "1/2" },
+      { "text": "If a cake is cut into 4 parts and you eat 1, what fraction is left?", "answer": "3/4" },
+      { "text": "Divide 8 equally into 2 groups.", "answer": "4" },
+      { "text": "One-quarter of 12 is ?", "answer": "3" }
+    ]
+  },
+  {
+    "topic": "Patterns & Sequencing",
+    "questions": [
+      { "text": "Complete: 2, 4, 6, __, __", "answer": "8, 10" },
+      { "text": "A, B, C, A, B, __, __", "answer": "C, A" },
+      { "text": "Which number is missing: 5, __, 9, 11?", "answer": "7" },
+      { "text": "Make a pattern using 1 and 2.", "answer": "1, 2, 1, 2" },
+      { "text": "Continue: 10, 9, 8, __, __", "answer": "7, 6" }
+    ]
+  },
+  {
+    "topic": "Time",
+    "questions": [
+      { "text": "How many hours are in a day?", "answer": "24" },
+      { "text": "What comes after Tuesday?", "answer": "Wednesday" },
+      { "text": "If school starts at 9 o'clock, what time do you arrive?", "answer": "9 o'clock" },
+      { "text": "Which is earlier: 8 AM or 10 AM?", "answer": "8 AM" },
+      { "text": "How many minutes are in an hour?", "answer": "60" }
+    ]
+  },
+  {
+    "topic": "Data Handling",
+    "questions": [
+      { "text": "If 3 students like apples and 5 like bananas, which is more popular?", "answer": "bananas" },
+      { "text": "Draw a tally for the number 4.", "answer": "||||" },
+      { "text": "Which has fewer: 7 pencils or 5 pencils?", "answer": "5 pencils" },
+      { "text": "If cats = 6 and dogs = 8, which is greater?", "answer": "dogs" },
+      { "text": "How many more dogs than cats are there?", "answer": "2" }
+    ]
+  }
+]

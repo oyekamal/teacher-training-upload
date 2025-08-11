@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .star-rating {
+            font-size: 2em;
+            color: #ffc107;
+        }
+        .question-summary {
+            margin-top: 20px;
+        }
+        .question-summary li {
+            list-style: none;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .user-answer.correct {
+            color: green;
+            font-weight: bold;
+        }
+        .user-answer.incorrect {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Assessment Results</h1>
+    </header>
+    <main>
+        <section id="summary">
+            <h2>Summary for {{ assessment.student.name }}</h2>
+            <p><strong>Topic:</strong> {{ assessment.topic }}</p>
+            <p><strong>Score:</strong> {{ assessment.score }} / {{ assessment.questions|length }}</p>
+            <p><strong>Time Taken:</strong> {{ assessment.time_taken }} seconds</p>
+            <div class="star-rating">
+                {% for i in range(assessment.score) %}★{% endfor %}{% for i in range(5 - assessment.score) %}☆{% endfor %}
+            </div>
+        </section>
+
+        <section id="details">
+            <h2>Question Details</h2>
+            <ul class="question-summary">
+                {% for question in assessment.questions %}
+                    <li>
+                        <p><strong>Question:</strong> {{ question.text }}</p>
+                        <p><strong>Your Answer:</strong> <span class="user-answer {% if question.is_correct %}correct{% else %}incorrect{% endif %}">{{ question.user_answer }}</span></p>
+                        {% if not question.is_correct %}
+                            <p><strong>Correct Answer:</strong> {{ question.answer }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="feedback">
+            <h2>Teacher Feedback</h2>
+            <form action="{{ url_for('add_feedback', assessment_id=assessment.id) }}" method="post">
+                <div class="form-group">
+                    <textarea name="feedback" rows="4" cols="50" placeholder="Add your comments here...">{{ assessment.feedback or '' }}</textarea>
+                </div>
+                <button type="submit">Save Feedback and Finish</button>
+            </form>
+        </section>
+        <section id="finish">
+            <a href="{{ url_for('index') }}">Back to Dashboard</a>
+        </section>
+    </main>
+</body>
+</html>
